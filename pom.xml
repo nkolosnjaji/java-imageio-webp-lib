@@ -124,7 +124,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/nkolosnjaji/ava-imageio-webp-lib</url>
+            <url>https://maven.pkg.github.com/nkolosnjaji/java-imageio-webp-lib</url>
         </repository>
     </distributionManagement>
 </project>
