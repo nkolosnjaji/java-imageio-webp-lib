@@ -49,6 +49,7 @@
             </activation>
             <properties>
                 <family>unix</family>
+                <extension>so</extension>
             </properties>
         </profile>
         <profile>
@@ -61,6 +62,7 @@
             </activation>
             <properties>
                 <family>mac</family>
+                <extension>dylib</extension>
             </properties>
         </profile>
         <profile>
@@ -73,6 +75,7 @@
             </activation>
             <properties>
                 <family>mac</family>
+                <extension>dylib</extension>
             </properties>
         </profile>
     </profiles>
@@ -80,11 +83,11 @@
     <build>
         <resources>
             <resource>
-                <directory>webp_compiled/lib</directory>
+                <directory>webp_lib</directory>
                 <targetPath>com/nkolosnjaji/webp/${family}/${os.arch}</targetPath>
                 <includes>
-                    <include>libsharpyuv.dylib</include>
-                    <include>libwebp.dylib</include>
+                    <include>libsharpyuv.${extension}</include>
+                    <include>libwebp.${extension}}</include>
                 </includes>
             </resource>
         </resources>
