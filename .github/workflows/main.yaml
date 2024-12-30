@@ -20,11 +20,11 @@ jobs:
       matrix:
         os: [macos-latest, macos-13]
         include:
-          - suffix: so
-            os: ubuntu-latest
-            platform: unix
-            arch: x86_64
-            install_tools_command: sudo apt-get update && sudo apt-get install gcc make autoconf automake libtool
+#          - suffix: so
+#            os: ubuntu-latest
+#            platform: unix
+#            arch: amd64
+#            install_tools_command: sudo apt-get update && sudo apt-get install gcc make autoconf automake libtool
           - suffix: dylib
             os: macos-13
             platform: mac
