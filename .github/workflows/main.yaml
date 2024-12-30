@@ -66,8 +66,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '23'
-      - name: Debug compiled folder
-        run: ls -la ${{ github.workspace }}/webp_compiled/lib
       - uses: actions/download-artifact@v4
         name: Download WebP libs
         with:
@@ -75,7 +73,7 @@ jobs:
           path: ${{ github.workspace }}/webp_lib
       - name: Debug compiled folder
         run: ls -la ${{ github.workspace }}/webp_lib
-#      - run: mvn -B package -DskipTests
+      - run: mvn --batch --no-transfer-progress package -DskipTests
 #      - run: jar -xf ${{ github.workspace }}/webp-imageio-lib/target/*.jar
 #      - name: Debug compiled folder
 #        run: ls -la ${{ github.workspace }}/webp-imageio-lib/target/
