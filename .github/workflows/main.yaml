@@ -74,7 +74,7 @@ jobs:
       - name: Debug compiled folder
         run: ls -la ${{ github.workspace }}/webp_lib
       - name: Publish to GitHub Packages
-        run: mvn --batch-mode --no-transfer-progress package -DskipTests
+        run: mvn --batch-mode --no-transfer-progress deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - run: jar -xf ${{ github.workspace }}/webp-imageio-lib/target/*.jar
