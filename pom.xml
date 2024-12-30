@@ -44,7 +44,7 @@
             <activation>
                 <os>
                     <family>unix</family>
-                    <arch>aarch64</arch>
+                    <arch>x86_64</arch>
                 </os>
             </activation>
             <properties>
@@ -81,7 +81,7 @@
         <resources>
             <resource>
                 <directory>webp_compiled/lib</directory>
-                <targetPath>lib/${family}/${os.arch}</targetPath>
+                <targetPath>com/nkolosnjaji/webp/${family}/${os.arch}</targetPath>
                 <includes>
                     <include>libsharpyuv.dylib</include>
                     <include>libwebp.dylib</include>
