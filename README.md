@@ -1,0 +1,1 @@
+# java-imageio-webp-lib
