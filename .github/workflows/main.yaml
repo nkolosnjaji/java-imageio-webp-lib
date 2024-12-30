@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-webp-lib:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, macos-13]
+        include:
+          - suffix: so
+            os: ubuntu-latest
+            platform: unix
+            arch: x86_64
+            install_tools_command: sudo apt-get update && sudo apt-get install gcc make autoconf automake libtool
+          - suffix: dylib
+            os: macos-13
+            platform: mac
+            arch: x86_64
+            install_tools_command: brew install make autoconf automake libtool
+          - suffix: dylib
+            os: macos-latest
+            platform: mac
+            arch: aarch64
+            install_tools_command: brew install make autoconf automake libtool
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install OS specific tools
+        run: ${{ matrix.install_tools_command }}
+      - name: Build WebP lib
+        working-directory: ./submodules/libwebp
+        run: |
+          ./autogen.sh
+          ./configure \
+          --disable-static \
+          --disable-png \
+          --disable-jpeg \
+          --disable-tiff \
+          --disable-gif \
+          --disable-wic \
+          --disable-libwebpdecoder \
+          --disable-libwebpextras \
+          --disable-libwebpmux \
+          --disable-libwebpdemux \
+          --disable-sdl \
+          --prefix=${{ github.workspace }}/webp_compiled
+          make
+          make install
+      - uses: actions/upload-artifact@v4
+        name: Upload WebP libs
+        with:
+          name: webp-imageio_${{ matrix.platform }}_${{ matrix.arch }}
+          path: ${{ github.workspace }}/webp_compiled/lib
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+      - name: Debug compiled folder
+        run: ls -la ${{ github.workspace }}/webp_compiled
+#      - run: mvn -B package -DskipTests
+#      - run: jar -xf ${{ github.workspace }}/webp-imageio-lib/target/*.jar
+#      - name: Debug compiled folder
+#        run: ls -la ${{ github.workspace }}/webp-imageio-lib/target/
+#      - name: Debug compiled folder 2
+#        run: ls -la ${{ github.workspace }}/webp-imageio-lib/target/lib/${{matrix.platform}}/${{matrix.arch}}
