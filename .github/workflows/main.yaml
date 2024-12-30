@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, macos-13]
+        os: [macos-latest, macos-13]
         include:
           - suffix: so
             os: ubuntu-latest

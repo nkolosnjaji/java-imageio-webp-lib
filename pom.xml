@@ -87,7 +87,7 @@
                 <targetPath>com/nkolosnjaji/webp/${family}/${os.arch}</targetPath>
                 <includes>
                     <include>libsharpyuv.${extension}</include>
-                    <include>libwebp.${extension}}</include>
+                    <include>libwebp.${extension}</include>
                 </includes>
             </resource>
         </resources>
