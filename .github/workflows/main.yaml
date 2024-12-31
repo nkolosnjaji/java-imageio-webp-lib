@@ -96,3 +96,9 @@ jobs:
         run: mvn --batch-mode --no-transfer-progress clean deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Debug target folder
+        run: |
+          ls -la ${{ github.workspace }}/target/
+          ls -la ${{ github.workspace }}/target/unix_amd64
+          ls -la ${{ github.workspace }}/target/mac_x86_64
+          ls -la ${{ github.workspace }}/target/mac_aarch64

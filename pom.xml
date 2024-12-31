@@ -77,7 +77,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>unix_amd64</classesDirectory>
+                            <classesDirectory>${project.build.outputDirectory}/unix_amd64</classesDirectory>
                             <classifier>unix_amd64</classifier>
                         </configuration>
                     </execution>
@@ -88,7 +88,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>mac_x86_64</classesDirectory>
+                            <classesDirectory>${project.build.outputDirectory}/mac_x86_64</classesDirectory>
                             <classifier>mac_x86_64</classifier>
                         </configuration>
                     </execution>
@@ -99,7 +99,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>mac_aarch64</classesDirectory>
+                            <classesDirectory>${project.build.outputDirectory}/mac_aarch64</classesDirectory>
                             <classifier>mac_aarch64</classifier>
                         </configuration>
                     </execution>
