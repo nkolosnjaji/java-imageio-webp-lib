@@ -66,6 +66,7 @@ jobs:
       contents: read
       packages: write
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         name: Download WebP libs - unix_amd64
         with:
