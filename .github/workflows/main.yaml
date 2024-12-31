@@ -12,9 +12,6 @@ on:
 jobs:
   build-webp-lib:
     runs-on: ${{ matrix.os }}
-    permissions:
-      contents: read
-      packages: write
     strategy:
       fail-fast: false
       matrix:
@@ -62,23 +59,38 @@ jobs:
         with:
           name: webp-imageio_${{ matrix.platform }}_${{ matrix.arch }}
           path: ${{ github.workspace }}/webp_compiled/lib
+  package-jar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/download-artifact@v4
+        name: Download WebP libs - unix_amd64
+        with:
+            name: webp-imageio_unix_amd64
+            path: ${{ github.workspace }}/webp_lib/unix_amd64
+      - uses: actions/download-artifact@v4
+        name: Download WebP libs - mac_x86_64
+        with:
+          name: webp-imageio_mac_x86_64
+          path: ${{ github.workspace }}/webp_lib/mac_x86_64
+      - uses: actions/download-artifact@v4
+        name: Download WebP libs - mac_aarch64
+        with:
+          name: webp-imageio_mac_aarch64
+          path: ${{ github.workspace }}/webp_lib/mac_aarch64
+      - name: Debug lib folder
+        run: |
+          ls -la ${{ github.workspace }}/webp_lib/
+          ls -la ${{ github.workspace }}/webp_lib/unix_amd64
+          ls -la ${{ github.workspace }}/webp_lib/mac_x86_64
+          ls -la ${{ github.workspace }}/webp_lib/mac_aarch64
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '23'
-      - uses: actions/download-artifact@v4
-        name: Download WebP libs
-        with:
-          name: webp-imageio_${{ matrix.platform }}_${{ matrix.arch }}
-          path: ${{ github.workspace }}/webp_lib
-      - name: Debug compiled folder
-        run: ls -la ${{ github.workspace }}/webp_lib
       - name: Publish to GitHub Packages
-        run: mvn --batch-mode --no-transfer-progress deploy -DskipTests
+        run: mvn --batch-mode --no-transfer-progress clean deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#      - run: jar -xf ${{ github.workspace }}/webp-imageio-lib/target/*.jar
-#      - name: Debug compiled folder
-#        run: ls -la ${{ github.workspace }}/webp-imageio-lib/target/
-#      - name: Debug compiled folder 2
-#        run: ls -la ${{ github.workspace }}/webp-imageio-lib/target/lib/${{matrix.platform}}/${{matrix.arch}}

@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>java-imageio-webp-lib</name>
     <description>WebP dynamic lib complied</description>
-    <url/>
+    <url>https://github.com/nkolosnjaji/java-imageio-webp-lib</url>
     <licenses>
         <license>
             <name>BSD-3-Clause license</name>
@@ -35,59 +35,32 @@
         <maven.compiler.target>23</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
-        <maven-install-plugin.version>3.1.3</maven-install-plugin.version>
     </properties>
-
-    <profiles>
-        <profile>
-            <id>unix-x86_64</id>
-            <activation>
-                <os>
-                    <family>unix</family>
-                    <arch>amd64</arch>
-                </os>
-            </activation>
-            <properties>
-                <family>unix</family>
-                <extension>so</extension>
-            </properties>
-        </profile>
-        <profile>
-            <id>mac-x86_64</id>
-            <activation>
-                <os>
-                    <family>mac</family>
-                    <arch>x86_64</arch>
-                </os>
-            </activation>
-            <properties>
-                <family>mac</family>
-                <extension>dylib</extension>
-            </properties>
-        </profile>
-        <profile>
-            <id>mac-arm</id>
-            <activation>
-                <os>
-                    <family>mac</family>
-                    <arch>aarch64</arch>
-                </os>
-            </activation>
-            <properties>
-                <family>mac</family>
-                <extension>dylib</extension>
-            </properties>
-        </profile>
-    </profiles>
 
     <build>
         <resources>
             <resource>
-                <directory>webp_lib</directory>
-                <targetPath>com/nkolosnjaji/webp/${family}/${os.arch}</targetPath>
+                <directory>webp_lib/unix_amd64</directory>
+                <targetPath>unix_amd64/com/nkolosnjaji/webp/unix/amd64</targetPath>
                 <includes>
-                    <include>libsharpyuv.${extension}</include>
-                    <include>libwebp.${extension}</include>
+                    <include>libsharpyuv.so</include>
+                    <include>libwebp.so</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>webp_lib/mac_x86_64</directory>
+                <targetPath>mac_x86_64/com/nkolosnjaji/webp/mac/x86_64</targetPath>
+                <includes>
+                    <include>libsharpyuv.dylib</include>
+                    <include>libwebp.dylib</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>webp_lib/mac_aarch64</directory>
+                <targetPath>mac_aarch64/com/nkolosnjaji/webp/mac/aarch64</targetPath>
+                <includes>
+                    <include>libsharpyuv.dylib</include>
+                    <include>libwebp.dylib</include>
                 </includes>
             </resource>
         </resources>
@@ -97,28 +70,38 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${maven-jar-plugin.version}</version>
                 <executions>
-<!--                    <execution>-->
-<!--                        <id>default-jar</id>-->
-<!--                        <phase>none</phase>-->
-<!--                    </execution>-->
                     <execution>
+                        <id>package-unix_amd64</id>
                         <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classifier>${family}_${os.arch}</classifier>
+                            <classifier>unix_amd64</classifier>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>package-mac_x86_64</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>mac_x86_64</classifier>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>package-mac_aarch64</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>mac_aarch64</classifier>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-install-plugin</artifactId>
-                <groupId>org.apache.maven.plugins</groupId>
-                <version>${maven-install-plugin.version}</version>
-                <configuration>
-                    <allowIncompleteProjects>true</allowIncompleteProjects>
-                </configuration>
+
             </plugin>
         </plugins>
     </build>
