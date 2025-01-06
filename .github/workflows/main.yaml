@@ -70,8 +70,8 @@ jobs:
       - uses: actions/download-artifact@v4
         name: Download WebP libs - unix_amd64
         with:
-            name: webp-imageio_unix_amd64
-            path: ${{ github.workspace }}/webp_lib/unix_amd64
+          name: webp-imageio_unix_amd64
+          path: ${{ github.workspace }}/webp_lib/unix_amd64
       - uses: actions/download-artifact@v4
         name: Download WebP libs - mac_x86_64
         with:
@@ -96,9 +96,3 @@ jobs:
         run: mvn --batch-mode --no-transfer-progress clean deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Debug target folder
-        run: |
-          ls -la ${{ github.workspace }}/target/
-          ls -la ${{ github.workspace }}/target/unix_amd64
-          ls -la ${{ github.workspace }}/target/mac_x86_64
-          ls -la ${{ github.workspace }}/target/mac_aarch64

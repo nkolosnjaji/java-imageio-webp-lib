@@ -24,10 +24,9 @@
         </developer>
     </developers>
     <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
+        <connection>scm:git:git://github.com/nkolosnjaji/java-imageio-webp-lib.git</connection>
+        <developerConnection>scm:git:ssh://github.com:nkolosnjaji/java-imageio-webp-lib.git</developerConnection>
+        <url>http://github.com/nkolosnjaji/java-imageio-webp-lib/tree/main</url>
     </scm>
 
     <properties>
