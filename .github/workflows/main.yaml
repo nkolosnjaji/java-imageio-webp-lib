@@ -92,7 +92,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '23'
+          server-id: ossrh
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
       - name: Publish to GitHub Packages
         run: mvn --batch-mode --no-transfer-progress clean deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}

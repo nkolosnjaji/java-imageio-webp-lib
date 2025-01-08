@@ -5,7 +5,7 @@
 
     <groupId>com.nkolosnjaji</groupId>
     <artifactId>java-imageio-webp-lib</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>java-imageio-webp-lib</name>
     <description>WebP dynamic lib complied</description>
     <url>https://github.com/nkolosnjaji/java-imageio-webp-lib</url>
@@ -103,16 +103,25 @@
                         </configuration>
                     </execution>
                 </executions>
-
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.6.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                </configuration>
             </plugin>
         </plugins>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/nkolosnjaji/java-imageio-webp-lib</url>
-        </repository>
-    </distributionManagement>
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>github</id>-->
+<!--            <name>GitHub Packages</name>-->
+<!--            <url>https://maven.pkg.github.com/nkolosnjaji/java-imageio-webp-lib</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
 </project>
