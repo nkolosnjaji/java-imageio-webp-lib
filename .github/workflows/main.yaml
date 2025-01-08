@@ -97,6 +97,8 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - name: Debug GPG
+        run: gpg --list-secret-keys
       - name: Publish to GitHub Packages
         run: mvn --batch-mode --no-transfer-progress clean deploy -DskipTests
         env:
