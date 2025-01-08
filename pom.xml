@@ -106,6 +106,9 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
+                        <configuration>
+                            <signer>bc</signer>
+                        </configuration>
                     </execution>
                 </executions>
                 <configuration>
