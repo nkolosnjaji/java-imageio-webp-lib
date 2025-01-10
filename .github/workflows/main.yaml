@@ -13,11 +13,20 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Download jextract
-        run: |
-          curl -L -o jextract.zip https://download.java.net/java/early_access/jextract/22/6/openjdk-22-jextract+6-47_linux-x64_bin.tar.gz
-          du -h jextract.zip
-          unzip --version
+      - name: 'Set up latest JDK code tool jextract'
+        uses: oracle-actions/setup-java@v1
+        with:
+          website: jdk.java.net
+          release: jextract
+      - name: check versions
+#        shell: bash
+        run: jextract --version
+
+#      - name: Download jextract
+#        run: |
+#          curl -L -o jextract.zip https://download.java.net/java/early_access/jextract/22/6/openjdk-22-jextract+6-47_linux-x64_bin.tar.gz
+#          du -h jextract.zip
+#          unzip --version
 #          unzip jextract.zip -d ${{ github.workspace }}
 
 #      - name: jextract test
