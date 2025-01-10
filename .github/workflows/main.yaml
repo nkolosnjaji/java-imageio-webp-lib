@@ -61,7 +61,7 @@ jobs:
 #          path: ${{ github.workspace }}/webp_compiled/lib
   package-jar:
     runs-on: ubuntu-latest
-    needs: build-webp-lib
+#    needs: build-webp-lib
     permissions:
       contents: read
       packages: write
@@ -98,7 +98,9 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
       - name: Debug private k
-        run: echo ${{ secrets.GPG_SIGNING_KEY}}
+        run: |
+          var=${{ secrets.GPG_SIGNING_KEY}}
+          echo ${var:5:5}
       - name: Debug GPG
         run: gpg --list-secret-keys
 #      - name: Publish to GitHub Packages
