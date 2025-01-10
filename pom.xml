@@ -127,7 +127,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>webp_lib/unix_amd64</classesDirectory>
+                            <classesDirectory>libs/unix_amd64</classesDirectory>
                             <classifier>unix_amd64</classifier>
                         </configuration>
                     </execution>
@@ -138,7 +138,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>webp_lib/mac_x86_64</classesDirectory>
+                            <classesDirectory>libs/mac_x86_64</classesDirectory>
                             <classifier>mac_x86_64</classifier>
                         </configuration>
                     </execution>
@@ -149,7 +149,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>webp_lib/mac_aarch64</classesDirectory>
+                            <classesDirectory>libs/mac_aarch64</classesDirectory>
                             <classifier>mac_aarch64</classifier>
                         </configuration>
                     </execution>
