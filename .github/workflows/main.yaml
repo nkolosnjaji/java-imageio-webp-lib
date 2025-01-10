@@ -156,7 +156,8 @@ jobs:
             --include-constant WEBP_HINT_PHOTO \
             --include-constant WEBP_HINT_PICTURE \
             --include-constant WEBP_MAX_DIMENSION \
-            libwebp.h
+            ${{ github.workspace }}/submodules/libwebp/src/webp/encode.h" \
+            ${{ github.workspace }}/submodules/libwebp/src/webp/decode.h"
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
