@@ -121,9 +121,9 @@
                 <version>${maven-jar-plugin.version}</version>
                 <configuration>
                     <excludes>
-                        <exclude>${project.build.outputDirectory}/unix_amd64</exclude>
-                        <exclude>${project.build.outputDirectory}/mac_x86_64</exclude>
-                        <exclude>${project.build.outputDirectory}/mac_aarch64</exclude>
+                        <exclude>${project.build.outputDirectory}/unix_amd64/**</exclude>
+                        <exclude>${project.build.outputDirectory}/mac_x86_64/**</exclude>
+                        <exclude>${project.build.outputDirectory}/mac_aarch64/**</exclude>
                     </excludes>
                 </configuration>
                 <executions>
