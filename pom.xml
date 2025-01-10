@@ -37,32 +37,32 @@
     </properties>
 
     <build>
-        <resources>
-            <resource>
-                <directory>webp_lib/unix_amd64</directory>
-                <targetPath>unix_amd64/com/nkolosnjaji/webp/unix/amd64</targetPath>
-                <includes>
-                    <include>libsharpyuv.so</include>
-                    <include>libwebp.so</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>webp_lib/mac_x86_64</directory>
-                <targetPath>mac_x86_64/com/nkolosnjaji/webp/mac/x86_64</targetPath>
-                <includes>
-                    <include>libsharpyuv.dylib</include>
-                    <include>libwebp.dylib</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>webp_lib/mac_aarch64</directory>
-                <targetPath>mac_aarch64/com/nkolosnjaji/webp/mac/aarch64</targetPath>
-                <includes>
-                    <include>libsharpyuv.dylib</include>
-                    <include>libwebp.dylib</include>
-                </includes>
-            </resource>
-        </resources>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>webp_lib/unix_amd64</directory>-->
+<!--                <targetPath>unix_amd64/com/nkolosnjaji/webp/unix/amd64</targetPath>-->
+<!--                <includes>-->
+<!--                    <include>libsharpyuv.so</include>-->
+<!--                    <include>libwebp.so</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                <directory>webp_lib/mac_x86_64</directory>-->
+<!--                <targetPath>mac_x86_64/com/nkolosnjaji/webp/mac/x86_64</targetPath>-->
+<!--                <includes>-->
+<!--                    <include>libsharpyuv.dylib</include>-->
+<!--                    <include>libwebp.dylib</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--            <resource>-->
+<!--                <directory>webp_lib/mac_aarch64</directory>-->
+<!--                <targetPath>mac_aarch64/com/nkolosnjaji/webp/mac/aarch64</targetPath>-->
+<!--                <includes>-->
+<!--                    <include>libsharpyuv.dylib</include>-->
+<!--                    <include>libwebp.dylib</include>-->
+<!--                </includes>-->
+<!--            </resource>-->
+<!--        </resources>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -119,13 +119,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${maven-jar-plugin.version}</version>
-                <configuration>
-                    <excludes>
-                        <exclude>${project.build.outputDirectory}/unix_amd64/**</exclude>
-                        <exclude>${project.build.outputDirectory}/mac_x86_64/**</exclude>
-                        <exclude>${project.build.outputDirectory}/mac_aarch64/**</exclude>
-                    </excludes>
-                </configuration>
                 <executions>
                     <execution>
                         <id>package-unix_amd64</id>
@@ -134,7 +127,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>${project.build.outputDirectory}/unix_amd64</classesDirectory>
+                            <classesDirectory>webp_lib/unix_amd64</classesDirectory>
                             <classifier>unix_amd64</classifier>
                         </configuration>
                     </execution>
@@ -145,7 +138,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>${project.build.outputDirectory}/mac_x86_64</classesDirectory>
+                            <classesDirectory>webp_lib/mac_x86_64</classesDirectory>
                             <classifier>mac_x86_64</classifier>
                         </configuration>
                     </execution>
@@ -156,7 +149,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <classesDirectory>${project.build.outputDirectory}/mac_aarch64</classesDirectory>
+                            <classesDirectory>webp_lib/mac_aarch64</classesDirectory>
                             <classifier>mac_aarch64</classifier>
                         </configuration>
                     </execution>
