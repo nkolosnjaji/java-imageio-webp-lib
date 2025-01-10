@@ -5,7 +5,7 @@
 
     <groupId>io.github.nkolosnjaji</groupId>
     <artifactId>java-imageio-webp-lib</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>java-imageio-webp-lib</name>
     <description>WebP dynamic lib complied</description>
     <url>https://github.com/nkolosnjaji/java-imageio-webp-lib</url>
@@ -119,6 +119,13 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${maven-jar-plugin.version}</version>
+                <configuration>
+                    <excludes>
+                        <exclude>${project.build.outputDirectory}/unix_amd64</exclude>
+                        <exclude>${project.build.outputDirectory}/mac_x86_64</exclude>
+                        <exclude>${project.build.outputDirectory}/mac_aarch64</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <id>package-unix_amd64</id>
