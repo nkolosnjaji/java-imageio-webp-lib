@@ -17,6 +17,7 @@ jobs:
         run: |
           curl -L -o jextract.zip https://download.java.net/java/early_access/jextract/22/6/openjdk-22-jextract+6-47_linux-x64_bin.tar.gz
           du -h jextract.zip
+          unzip --version
 #          unzip jextract.zip -d ${{ github.workspace }}
 
 #      - name: jextract test
