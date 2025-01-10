@@ -175,5 +175,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         name: 'Upload Target - debug'
         with:
-          name: webp-imageio_${{ matrix.platform }}_${{ matrix.arch }}
+          name: target
           path: ${{ github.workspace }}/target
