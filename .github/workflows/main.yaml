@@ -90,6 +90,7 @@ jobs:
 #          ls -la ${{ github.workspace }}/webp_lib/mac_aarch64
       - uses: actions/setup-java@v4
         with:
+          environment: release
           distribution: 'temurin'
           java-version: '23'
           server-id: ossrh
