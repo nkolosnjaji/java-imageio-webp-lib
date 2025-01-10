@@ -16,10 +16,11 @@ jobs:
       - name: Download jextract
         run: |
           curl -L -o jextract.zip https://download.java.net/java/early_access/jextract/22/6/openjdk-22-jextract+6-47_linux-x64_bin.tar.gz
-          du -h jextract.zip
-          unzip jextract.zip -d ${{ github.workspace }}
-      - name: jextract test
-        run: jextract --version
+#          du -h jextract.zip
+#          unzip jextract.zip -d ${{ github.workspace }}
+
+#      - name: jextract test
+#        run: jextract --version
 #  build-webp-lib:
 #    runs-on: ${{ matrix.os }}
 #    strategy:
