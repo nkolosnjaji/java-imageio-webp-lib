@@ -162,15 +162,15 @@ jobs:
           path: ${{ github.workspace }}/webp_lib/mac_aarch64
       - name: 'Copy resources to libs folder'
         run: |
-          mkdir -p libs/unix_amd64/io/github/nkolosnjaji/webp/unix/amd64
-          cp webp_lib/unix_amd64/libsharpyuv.so libs/unix_amd64/io/github/nkolosnjaji/webp/unix/amd64
-          cp webp_lib/unix_amd64/libwebp.so libs/unix_amd64/io/github/nkolosnjaji/webp/unix/amd64
-          mkdir -p libs/mac_x86_64/io/github/nkolosnjaji/webp/mac/x86_64
-          cp webp_lib/mac_x86_64/libsharpyuv.dylib libs/mac_x86_64/io/github/nkolosnjaji/mac/x86_64
-          cp webp_lib/mac_x86_64/libwebp.dylib libs/mac_x86_64/io/github/nkolosnjaji/webp/mac/x86_64
-          mkdir -p libs/mac_aarch64/io/github/nkolosnjaji/webp/mac/aarch64
-          cp webp_lib/mac_aarch64/libsharpyuv.dylib libs/mac_aarch64/io/github/nkolosnjaji/webp/mac/aarch64
-          cp webp_lib/mac_aarch64/libwebp.dylib libs/mac_aarch64/io/github/nkolosnjaji/webp/mac/aarch64
+          mkdir -p ${{ github.workspace }}/libs/unix_amd64/io/github/nkolosnjaji/webp/unix/amd64
+          cp ${{ github.workspace }}/webp_lib/unix_amd64/libsharpyuv.so ${{ github.workspace }}/libs/unix_amd64/io/github/nkolosnjaji/webp/unix/amd64
+          cp ${{ github.workspace }}/webp_lib/unix_amd64/libwebp.so ${{ github.workspace }}/libs/unix_amd64/io/github/nkolosnjaji/webp/unix/amd64
+          mkdir -p ${{ github.workspace }}/libs/mac_x86_64/io/github/nkolosnjaji/webp/mac/x86_64
+          cp ${{ github.workspace }}/webp_lib/mac_x86_64/libsharpyuv.dylib ${{ github.workspace }}/libs/mac_x86_64/io/github/nkolosnjaji/webp/mac/x86_64
+          cp ${{ github.workspace }}/webp_lib/mac_x86_64/libwebp.dylib ${{ github.workspace }}/libs/mac_x86_64/io/github/nkolosnjaji/webp/mac/x86_64
+          mkdir -p ${{ github.workspace }}/libs/mac_aarch64/io/github/nkolosnjaji/webp/mac/aarch64
+          cp ${{ github.workspace }}/webp_lib/mac_aarch64/libsharpyuv.dylib ${{ github.workspace }}/libs/mac_aarch64/io/github/nkolosnjaji/webp/mac/aarch64
+          cp ${{ github.workspace }}/webp_lib/mac_aarch64/libwebp.dylib ${{ github.workspace }}/libs/mac_aarch64/io/github/nkolosnjaji/webp/mac/aarch64
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
