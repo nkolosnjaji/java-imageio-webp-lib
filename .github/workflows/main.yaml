@@ -98,7 +98,7 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_SIGNING_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
       - name: Debug private k
-        run: echo ${{ secrets.GPG_SIGNING_KEY:2:2}}
+        run: echo ${{ secrets.GPG_SIGNING_KEY}}
       - name: Debug GPG
         run: gpg --list-secret-keys
 #      - name: Publish to GitHub Packages
