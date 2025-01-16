@@ -5,7 +5,7 @@
 
     <groupId>io.github.nkolosnjaji</groupId>
     <artifactId>java-imageio-webp-lib</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <name>java-imageio-webp-lib</name>
     <description>WebP dynamic lib complied</description>
     <url>https://github.com/nkolosnjaji/java-imageio-webp-lib</url>
@@ -30,8 +30,8 @@
     </scm>
 
     <properties>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
