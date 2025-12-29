@@ -26,12 +26,12 @@
     <scm>
         <connection>scm:git:git://github.com/nkolosnjaji/java-imageio-webp-lib.git</connection>
         <developerConnection>scm:git:ssh://github.com:nkolosnjaji/java-imageio-webp-lib.git</developerConnection>
-        <url>http://github.com/nkolosnjaji/java-imageio-webp-lib/tree/main</url>
+        <url>https://github.com/nkolosnjaji/java-imageio-webp-lib/tree/main</url>
     </scm>
 
     <properties>
-        <maven.compiler.source>22</maven.compiler.source>
-        <maven.compiler.target>22</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>

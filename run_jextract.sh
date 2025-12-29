@@ -1,10 +1,10 @@
 #!/bin/bash
 
-JEXTRACT_HOME=~/Downloads/jextract-22/
+JEXTRACT_HOME=~/Downloads/jextract-25
 
-rm -f src/main/java/com/nkolosnjaji/webp/gen/*.java
+rm -f src/main/java/io/github/nkolosnjaji/webp/gen/*.java
 
-${JEXTRACT_HOME}/jextract --output src/main/java -t io.github.nkolosnjaji.webp.gen \
+${JEXTRACT_HOME}/bin/jextract --output src/main/java -t io.github.nkolosnjaji.webp.gen \
   --header-class-name LibWebP \
   --include-function WebPGetEncoderVersion \
   --include-function WebPConfigLosslessPreset \
